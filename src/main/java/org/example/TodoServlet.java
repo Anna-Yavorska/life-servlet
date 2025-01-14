@@ -9,9 +9,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 
-@WebServlet(name = "TodoServlet", value="/todo")
+@WebServlet(name = "TodoServlet", value = "/todo")
 public class TodoServlet extends HttpServlet {
 
     @Override
@@ -19,8 +18,8 @@ public class TodoServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         PrintWriter writer = resp.getWriter();
         ArrayList<String> todoList = (ArrayList<String>) session.getAttribute("todo-list");
-        if (todoList ==null){
-           todoList = new ArrayList<>();
+        if (todoList == null) {
+            todoList = new ArrayList<>();
         }
 
         StringBuilder html = new StringBuilder();
@@ -55,7 +54,7 @@ public class TodoServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
 
         ArrayList<String> todoList = (ArrayList<String>) session.getAttribute("todo-list");
-        if (todoList == null){
+        if (todoList == null) {
             todoList = new ArrayList<>();
         }
         todoList.add(item);
